@@ -33,7 +33,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
               footerTemplate +
               '</div>');
 
-          modalEl.css('top', $document.scrollTop() + 45);
+          modalEl.css('top', '45px');
           modalEl.css('left', '30%');
           modalEl.css('margin', '0 auto');
 

@@ -8,7 +8,6 @@ The Service createDialog can be used to create a modal using Twitter's Bootstrap
 ## Requirements
 
 1. Twitter Bootstrap CSS
-2. JQuery JS (No need for JQuery-UI)
 3. the createDialog.js file
 
 ## Using it:
