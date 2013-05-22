@@ -7,7 +7,6 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
           success: {label: 'OK', fn: null},
           controller: null, //just like route controller declaration
           backdropClass: "modal-backdrop",
-          footerTemplate: null,
           modalClass: "modal"
         };
         var body = $document.find('body');
@@ -17,23 +16,12 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
           options = angular.extend({}, defaults, options); //options defined in constructor
 
           var idAttr = options.id ? ' id="' + options.id + '" ' : '';
-          var defaultFooter = '<button class="btn" ng-click="$modalCancel()">Close</button>' +
-            '<button class="btn btn-primary" ng-click="$modalSuccess()">{{$modalSuccessLabel}}</button>';
-          var footerTemplate = '<div class="modal-footer">' +
-            (options.footerTemplate || defaultFooter) +
-            '</div>';
           //We don't have the scope we're gonna use yet, so just get a compile function for modal
           var modalEl = angular.element(
-            '<div class="' + options.modalClass + ' fade"' + idAttr + '>' +
-              '  <div class="modal-header">' +
-              '    <a class="close-button" ng-click="$modalCancel()"></a>' +
-              '    <h2>{{$title}}</h2>' +
-              '  </div>' +
-              '  <div class="modal-body" ng-include="\'' + template + '\'"></div>' +
-              footerTemplate +
+            '<div class="' + options.modalClass + ' fade"' + idAttr + ' ng-include="\'' + template + '\'">' +
               '</div>');
 
-          modalEl.css('top', '45px');
+          modalEl.css('top', '100px');
           modalEl.css('left', '30%');
           modalEl.css('margin', '0 auto');
 
