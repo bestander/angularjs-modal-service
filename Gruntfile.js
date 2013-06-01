@@ -19,13 +19,11 @@ module.exports = function (grunt) {
           containerName: 'alpha-client',
           serviceOptions: [azureCdnName, azureCdnSecret],
           numberOfFoldersToStripFromSourcePath: 1,
-          destinationFolderPath: 'dev/',
-          printUrlToFile: '<%= booktrack.dist %>/app/index.html'
+          destinationFolderPath: 'test/',
+          printUrlToFile: 'src/createDialog.js'
         },
         src: [
-          '<%= booktrack.dist %>/app/**/*.{html,js,png,css,ico}',
-          '<%= booktrack.dist %>/components/**/*.{html,js,png,css,svg,ttf,woff,eot}',
-          '<%= booktrack.dist %>/publication2/*'
+          'src/createDialog.js'
         ]
       }
     }
@@ -33,8 +31,8 @@ module.exports = function (grunt) {
 
   // build scripts and css and copy other files into dist/app folder
   grunt.registerTask('build', [
-    'karma:tests'
-//    'azure-cdn-deploy:lib'
+    'karma:tests',
+    'azure-cdn-deploy:lib'
   ]);
 
 };
