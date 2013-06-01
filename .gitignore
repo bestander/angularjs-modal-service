@@ -11,3 +11,7 @@ components
 Icon?
 ehthumbs.db
 Thumbs.db
+
+#webstorm
+.idea
+

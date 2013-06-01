@@ -1,0 +1,23 @@
+{
+  "name": "angularjs-modal-service",
+  "version": "0.0.2",
+  "description": "angularjs-modal-service =======================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bestander/angularjs-modal-service.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "e9477934b55ae1d38c64516b7e026cfd778cdd9e",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-karma": "~0.4.4",
+    "matchdep": "~0.1.2",
+    "grunt-azure-cdn-deploy": "0.0.4"
+  }
+}
