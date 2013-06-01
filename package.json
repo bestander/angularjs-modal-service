@@ -18,6 +18,8 @@
     "grunt": "~0.4.1",
     "grunt-karma": "~0.4.4",
     "matchdep": "~0.1.2",
-    "grunt-azure-cdn-deploy": "0.0.4"
+    "grunt-azure-cdn-deploy": "0.0.4",
+    "bower": "~0.9.2",
+    "grunt-cli": "~0.1.9"
   }
 }
