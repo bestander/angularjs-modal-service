@@ -8,6 +8,16 @@ module.exports = function (grunt) {
 
 
   grunt.initConfig({
+    sass: {
+      dist: {
+        options: {
+          style: 'compressed'
+        },
+        files: {
+          "src/index.css": "src/index.scss"
+        }
+      }
+    },
     karma: {
       tests: {
         configFile: 'karma.tests.conf.js'
@@ -23,7 +33,8 @@ module.exports = function (grunt) {
           printUrlToFile: 'src/createDialog.js'
         },
         src: [
-          'src/createDialog.js'
+          'src/createDialog.js',
+          'src/index.css'
         ]
       }
     }
@@ -31,6 +42,7 @@ module.exports = function (grunt) {
 
   // build scripts and css and copy other files into dist/app folder
   grunt.registerTask('build', [
+    'sass:dist'
     'karma:tests',
     'azure-cdn-deploy:lib'
   ]);
