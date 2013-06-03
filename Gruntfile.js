@@ -42,7 +42,7 @@ module.exports = function (grunt) {
 
   // build scripts and css and copy other files into dist/app folder
   grunt.registerTask('build', [
-    'sass:dist',
+//    'sass:dist',
     'karma:tests',
     'azure-cdn-deploy:lib'
   ]);
