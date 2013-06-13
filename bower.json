@@ -1,14 +1,15 @@
 {
   "name": "angularjs-modal-service",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "src/createDialog.js",
   "ignore": [
     "**/.*",
     "node_modules",
     "components"
   ],
+  "license": "MIT",
   "devDependencies": {
-    "angular": "~1.0.7",
-    "angular-mocks": "~1.0.7"
+    "angular": ">=1.0.7",
+    "angular-mocks": ">=1.0.7"
   }
 }

@@ -5,20 +5,16 @@ An AngularJS service that creates a Modal Popup with a given HTML template and c
 
 The Service createDialog can be used to create a modal using Twitter's Bootstrap on the fly.
 
-## Requirements
-
-1. Twitter Bootstrap CSS
-3. the createDialog.js file
-
 ## Using it:
 
 1. Include the createDialog.js file in your index.html file.
+2. Include either createDialog.css or bootstrap css in your index.html file.
 2. Include the 'fundoo.services' as a module dependency when you define your app
 3. Import the createDialog Service in your App Controller.
 4. Call the createDialog() function from your controller, using the following syntax :
 
 ```
-createDialog([template_url],{
+[closeFn] createDialog([template_url],{
     id : [modal_id],
     title: [modal_title],
     backdrop: [backdrop_visible],
@@ -47,6 +43,14 @@ where,
 * **modal_footer_template(optional)** *[string]* : the footer template of the modal.
 * **modal_class(optional)** *[string]* : the css class for the modal.
 * **modal_custom_data(optional)** *[object]* : is an object where each key becomes an argument to the controller of the modal.
+* **closeFn** *[function]* : calling this function will close the dialog
+
+## Running and testing it
+
+1. Make sure you have `git`, `node`, `npm`, `bower` and `grunt` installed
+2. Run `npm install && bower install` to download dependencies
+3. Run `grunt dev` to start a local server
+4. Open `localhost:9001/app` in your browser to see examples
 
 ## Where can I see a demo?
 

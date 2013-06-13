@@ -5,6 +5,7 @@ var app = angular.module('FundooModalApp', ['fundoo.services'])
               id: 'simpleDialog',
               title: 'A Simple Modal Dialog',
               backdrop: true,
+              modalClass: 'bootstrap-modal',
               success: {label: 'Success', fn: function() {console.log('Successfully closed simple modal');}}
             });
 		};
@@ -14,6 +15,7 @@ var app = angular.module('FundooModalApp', ['fundoo.services'])
               title: 'A Complex Modal Dialog',
               backdrop: true,
               controller: 'ComplexModalController',
+              modalClass: 'bootstrap-modal',
               success: {label: 'Success', fn: function() {console.log('Successfully closed complex modal');}}
             }, {
         	  myVal: 15,

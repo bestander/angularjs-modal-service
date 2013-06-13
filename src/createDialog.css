@@ -1,0 +1,98 @@
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #faf9f9;
+}
+
+.modal-backdrop.fade {
+    opacity: 0.5;
+}
+
+.bootstrap-modal {
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    z-index: 1050;
+    width: 900px;
+    height: 700px;
+    background-color: #fff;
+    -webkit-box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    outline: none;
+}
+
+.bootstrap-modal.fade {
+    -webkit-transition: opacity 0.3s linear, top 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, top 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, top 0.3s ease-out;
+    transition: opacity 0.3s linear, top 0.3s ease-out;
+    top: -25%;
+}
+
+.bootstrap-modal.fade.in {
+    top: 10%;
+}
+
+.bootstrap-modal__header {
+    padding: 5px 5px;
+    height: 40px;
+    background-color: #1b85b0;
+}
+
+.bootstrap-modal__header .bootstrap-modal__title {
+    float: left;
+    color: white;
+    font-size: 24px;
+    margin-top: 5px;
+}
+
+.bootstrap-modal__header .close {
+    margin-top: 5px;
+    margin-right: 5px;
+    float: right;
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+}
+
+.bootstrap-modal__header .close:hover, .bootstrap-modal__header .close:focus {
+    text-decoration: none;
+}
+
+.bootstrap-modal__body {
+    position: relative;
+    overflow-y: auto;
+    padding: 0 10px 0 10px;
+    background-color: #fff;
+}
+
+.bootstrap-modal__footer {
+    padding: 5px 15px 5px;
+    margin-bottom: 0;
+    font-family: "Arial";
+    text-align: center;
+    background-color: #fff;
+    color: #a6daed;
+    -webkit-border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6px 6px;
+    *zoom: 1;
+}
+
+.bootstrap-modal__footer:before, .bootstrap-modal__footer:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+
+.bootstrap-modal__footer:after {
+    clear: both;
+}

@@ -1,26 +1,20 @@
 {
   "name": "angularjs-modal-service",
-  "version": "0.0.2",
-  "description": "angularjs-modal-service =======================",
+  "version": "0.0.0",
+  "description": "Service function that creates modal dialogues, no external dependencies",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git://github.com/bestander/angularjs-modal-service.git"
   },
   "author": "",
-  "license": "BSD",
+  "license": "MIT",
   "readmeFilename": "README.md",
-  "gitHead": "e9477934b55ae1d38c64516b7e026cfd778cdd9e",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-karma": "~0.4.4",
     "matchdep": "~0.1.2",
-    "grunt-azure-cdn-deploy": "0.0.4",
-    "bower": "~0.9.2",
-    "grunt-cli": "~0.1.9",
-    "grunt-contrib-sass": "~0.3.0"
+    "grunt-contrib-connect": "0.1.1rc6",
+    "grunt-contrib-watch": "~0.4.4"
   }
 }

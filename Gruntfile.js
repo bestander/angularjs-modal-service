@@ -1,6 +1,7 @@
 'use strict';
-var azureCdnName = process.env.AZURE_CDN_NAME;
-var azureCdnSecret = process.env.AZURE_CDN_SECRET;
+var mountFolder = function (connect, dir) {
+  return connect.static(require('path').resolve(dir));
+};
 
 module.exports = function (grunt) {
   // load all grunt tasks
@@ -8,43 +9,45 @@ module.exports = function (grunt) {
 
 
   grunt.initConfig({
-    sass: {
-      dist: {
-        options: {
-          style: 'compressed'
-        },
-        files: {
-          "src/index.css": "src/index.scss"
-        }
-      }
-    },
     karma: {
       tests: {
         configFile: 'karma.tests.conf.js'
       }
     },
-    'azure-cdn-deploy': {
-      lib: {
+    connect: {
+      dev: {
         options: {
-          containerName: 'alpha-client',
-          serviceOptions: [azureCdnName, azureCdnSecret],
-          numberOfFoldersToStripFromSourcePath: 1,
-          destinationFolderPath: 'test/',
-          printUrlToFile: 'src/createDialog.js'
-        },
-        src: [
-          'src/createDialog.js',
-          'src/index.css'
-        ]
+          port: 9001,
+          hostname: 'localhost',
+          middleware: function (connect) {
+            return [
+              mountFolder(connect, "")
+            ];
+          }
+        }
+      }
+    },
+    watch: {
+      assets: {
+        files: [
+          'src/*'
+        ],
+        options: {
+          livereload: true,
+          nospawn: true
+        }
       }
     }
   });
 
   // build scripts and css and copy other files into dist/app folder
   grunt.registerTask('build', [
-    'sass:dist',
-    'karma:tests',
-    'azure-cdn-deploy:lib'
+    'karma:tests'
+  ]);
+
+  grunt.registerTask('dev', [
+    'connect',
+    'watch'
   ]);
 
 };
