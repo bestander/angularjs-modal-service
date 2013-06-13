@@ -3,7 +3,7 @@ angularjs-modal-service
 
 An AngularJS service that creates a Modal Popup with a given HTML template and controller.
 
-The Service createDialog can be used to create a modal using Twitter's Bootstrap on the fly.
+The Service createDialog can be used to create a modal on the fly.
 
 ## Using it:
 
@@ -14,7 +14,7 @@ The Service createDialog can be used to create a modal using Twitter's Bootstrap
 4. Call the createDialog() function from your controller, using the following syntax :
 
 ```
-[closeFn] createDialog([template_url],{
+[closeFn] createDialog([template],{
     id : [modal_id],
     title: [modal_title],
     backdrop: [backdrop_visible],
@@ -27,7 +27,7 @@ The Service createDialog can be used to create a modal using Twitter's Bootstrap
 ```
 where,
 
-* **template_url** *[string]* : the url of the template of the body of the template.
+* **template** *[string|Object]* : the url of the template of the modal body or wrapped DOM with jQuery orr jqLite 
 * **modal_id** *[string]* : the unique html id attr of the template.
 * **modal_title** *[string]* : is the title of the modal to be displayed in its header section.
 * **backdrop_visible(optional)** *[boolean]*: whether to hide the html page behind the modal under an overlay
@@ -56,9 +56,6 @@ where,
 
 Glad you asked. Go check out our GitHub page for the [AngularJS-Modal-Service]
 
-## Who are you?
-
-We are Fundoo Solutions, an awesome company based out of India who just love AngularJS. Check out our [website] or our [LinkedIn] page.
 
 ## License
 
@@ -67,7 +64,7 @@ Basically, feel free to use this code or modify it as per your needs. The actual
 
 ### The MIT License
 
-> Copyright (C) 2011-2013 Vojta Jína.
+> Copyright (C) 2011-2013 Konstantin Raev
 >
 > Permission is hereby granted, free of charge, to any person
 > obtaining a copy of this software and associated documentation files
@@ -90,6 +87,7 @@ Basically, feel free to use this code or modify it as per your needs. The actual
 > SOFTWARE.
 
 
+Most of inspiration and credits go to:
 
 [AngularJS-Modal-Service]: http://fundoo-solutions.github.io/angularjs-modal-service/
 [website]: http://www.befundoo.com
