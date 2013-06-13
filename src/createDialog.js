@@ -7,7 +7,8 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       success: {label: 'OK', fn: null},
       controller: null, //just like route controller declaration
       backdropClass: "modal-backdrop",
-      modalClass: "modal"
+      modalClass: "modal",
+      css: { }
     };
     var body = $document.find('body');
     return function Dialog(template, options, passedInLocals) {
@@ -30,6 +31,10 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
           '<div class="' + options.modalClass + ' fade"' + idAttr + '"></div>');
         modalEl.append(template);
       }
+    
+      Object.keys(options.css).forEach(function (key) { 
+        modalEl.css(key, options.css[key]);
+      });
 
       var backdropEl = angular.element('<div ng-click="$modalCancel()">');
       backdropEl.addClass(options.backdropClass);
