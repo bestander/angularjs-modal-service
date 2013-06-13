@@ -27,7 +27,7 @@ The Service createDialog can be used to create a modal on the fly.
 ```
 where,
 
-* **template** *[string|Object]* : the url of the template of the modal body or wrapped DOM with jQuery orr jqLite 
+* **template** *[string|Object]* : the url of the popup template html or wrapped jQuery (jQLite) wrapped DOM
 * **modal_id** *[string]* : the unique html id attr of the template.
 * **modal_title** *[string]* : is the title of the modal to be displayed in its header section.
 * **backdrop_visible(optional)** *[boolean]*: whether to hide the html page behind the modal under an overlay
@@ -89,6 +89,4 @@ Basically, feel free to use this code or modify it as per your needs. The actual
 
 Most of inspiration and credits go to:
 
-[AngularJS-Modal-Service]: http://fundoo-solutions.github.io/angularjs-modal-service/
-[website]: http://www.befundoo.com
-[LinkedIn]: http://www.linkedin.com/company/fundoo-solutions
+http://fundoo-solutions.github.io/angularjs-modal-service/
