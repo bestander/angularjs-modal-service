@@ -9,7 +9,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       backdropClass: "modal-backdrop",
       modalClass: "modal",
       css: { },
-      closeable: true
+      cancellable: true
     };
     var body = $document.find('body');
     return function Dialog(template, options, passedInLocals) {
@@ -61,12 +61,12 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
         scope = options.scope || $rootScope.$new();
 
       scope.$title = options.title;
-      scope.$modalCancel = options.closeable ? closeFn : function () { };
+      scope.$modalCancel = options.cancellable ? closeFn : function () { };
       
       scope.$modalSuccess = function () {
         var callFn = options.success.fn || closeFn;
         callFn.call(this);
-        scope.$modalCancel();
+        closeFn();
       };
       scope.$modalSuccessLabel = options.success.label;
 
