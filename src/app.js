@@ -18,6 +18,7 @@ var app = angular.module('FundooModalApp', ['fundoo.services'])
         backdrop: true,
         controller: 'ComplexModalController',
         modalClass: 'bootstrap-modal',
+        closeable: false,
         success: {label: 'Success', fn: function () {
           console.log('Successfully closed complex modal');
         }}

@@ -8,7 +8,8 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       controller: null, //just like route controller declaration
       backdropClass: "modal-backdrop",
       modalClass: "modal",
-      css: { }
+      css: { },
+      closeable: true
     };
     var body = $document.find('body');
     return function Dialog(template, options, passedInLocals) {
@@ -60,7 +61,8 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
         scope = options.scope || $rootScope.$new();
 
       scope.$title = options.title;
-      scope.$modalCancel = closeFn;
+      scope.$modalCancel = options.closeable ? closeFn : function () { };
+      
       scope.$modalSuccess = function () {
         var callFn = options.success.fn || closeFn;
         callFn.call(this);
