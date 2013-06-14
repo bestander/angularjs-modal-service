@@ -20,7 +20,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       var idAttr = options.id ? ' id="' + options.id + '" ' : '';
       //We don't have the scope we're gonna use yet, so just get a compile function for modal
 
-      if (typeof template == 'string' || template instanceof String) {
+      if (angular.isString(template)) {
         // if template is a string then it refers to an .html file 
         modalEl = angular.element(
           '<div class="' + options.modalClass + ' fade"' + idAttr + ' ng-include="\'' + template + '\'">' +
