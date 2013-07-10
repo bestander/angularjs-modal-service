@@ -54,7 +54,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
         if (options.backdrop) {
           backdropEl.remove();
         }
-        options.onClose();
+        scope.$onClose();
       };
 
       body.bind('keydown', handleEscPressed);
@@ -69,6 +69,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
         options.success.fn.call(this);
         closeFn();
       };
+      scope.$onClose = options.onClose;
       scope.$modalSuccessLabel = options.success.label;
 
       if (options.controller) {
