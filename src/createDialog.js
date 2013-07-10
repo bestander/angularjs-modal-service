@@ -4,7 +4,8 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       id: null,
       title: 'Default Title',
       backdrop: true,
-      success: {label: 'OK', fn: null},
+      success: {label: 'OK', fn: angular.noop},
+      onClose: angular.noop,
       controller: null, //just like route controller declaration
       backdropClass: "modal-backdrop",
       modalClass: "modal",
@@ -53,6 +54,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
         if (options.backdrop) {
           backdropEl.remove();
         }
+        options.onClose();
       };
 
       body.bind('keydown', handleEscPressed);
@@ -61,11 +63,10 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
         scope = options.scope || $rootScope.$new();
 
       scope.$title = options.title;
-      scope.$modalCancel = options.cancellable ? closeFn : function () { };
+      scope.$modalCancel = options.cancellable ? closeFn : angular.noop;
       
       scope.$modalSuccess = function () {
-        var callFn = options.success.fn || closeFn;
-        callFn.call(this);
+        options.success.fn.call(this);
         closeFn();
       };
       scope.$modalSuccessLabel = options.success.label;

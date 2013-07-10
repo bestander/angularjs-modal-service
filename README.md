@@ -19,6 +19,7 @@ The Service createDialog can be used to create a modal on the fly.
     title: [modal_title],
     backdrop: [backdrop_visible],
     success: [modal_success_button],
+    onClose: [modal_close_callback],
     controller: [modal_controller],
     backdropClass: [modal_backdrop_class],
     footerTemplate: [modal_footer_template],
@@ -39,7 +40,7 @@ where,
 ```
     {label: '[label_of_button]', fn: '[function_on_click]'}
 ```
-
+* **modal_close_callback(optional)** *[function]* : function that gets called when modal is closed
 * **modal_controller(optional)** *[string]* : is the controller attached to the modal.
 * **modal_backdrop_class(optional)** *[string]* : the css class for the backdrop of the modal.
 * **modal_footer_template(optional)** *[string]* : the footer template of the modal.
