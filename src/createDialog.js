@@ -72,19 +72,18 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       scope.$onClose = options.onClose;
       scope.$modalSuccessLabel = options.success.label;
 
+      $compile(modalEl)(scope);
+      $compile(backdropEl)(scope);
+      body.append(modalEl);
+      if (options.backdrop) body.append(backdropEl);
+
       if (options.controller) {
         locals = angular.extend({$scope: scope}, passedInLocals);
         ctrl = $controller(options.controller, locals);
         // Yes, ngControllerController is not a typo
         modalEl.contents().data('$ngControllerController', ctrl);
       }
-
-      $compile(modalEl)(scope);
-      $compile(backdropEl)(scope);
-      body.append(modalEl);
-      if (options.backdrop) body.append(backdropEl);
-
-
+      
       $timeout(function () {
         modalEl.addClass('in');
       }, 0);
