@@ -54,6 +54,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
         if (options.backdrop) {
           backdropEl.remove();
         }
+        scope.$destroy();
         scope.$onClose();
       };
 
