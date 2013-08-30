@@ -43,9 +43,11 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       backdropEl.addClass('fade in');
 
       var handleEscPressed = function (event) {
-        if (event.keyCode === 27) {
-          scope.$modalCancel();
-        }
+        scope.$apply(function () {
+          if (event.keyCode === 27) {
+            scope.$modalCancel();
+          }
+        });
       };
 
       var closeFn = function () {
