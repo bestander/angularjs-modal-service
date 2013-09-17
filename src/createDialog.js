@@ -1,5 +1,5 @@
-angular.module('fundoo.services', []).factory('createDialog', ["$document", "$compile", "$rootScope", "$controller", "$timeout",
-  function ($document, $compile, $rootScope, $controller, $timeout) {
+angular.module('fundoo.services', []).factory('createDialog', ["$document", "$compile", "$rootScope", "$controller", "$timeout", "$location",
+  function ($document, $compile, $rootScope, $controller, $timeout, $location) {
     var defaults = {
       id: null,
       title: 'Default Title',
@@ -10,7 +10,8 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       backdropClass: "modal-backdrop",
       modalClass: "modal",
       css: { },
-      cancellable: true
+      cancellable: true,
+      searchUrl: {key: null, value: null}
     };
     var body = $document.find('body');
     return function Dialog(template, options, passedInLocals) {
@@ -51,6 +52,9 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       };
 
       var closeFn = function () {
+        if(options.searchUrl.key){
+          $location.search(options.searchUrl.key, null);
+        }
         body.unbind('keydown', handleEscPressed);
         modalEl.remove();
         if (options.backdrop) {
@@ -85,6 +89,9 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
         ctrl = $controller(options.controller, locals);
         // Yes, ngControllerController is not a typo
         modalEl.contents().data('$ngControllerController', ctrl);
+      }
+      if(options.searchUrl.key){
+        $location.search(options.searchUrl.key, options.searchUrl.value);
       }
       
       $timeout(function () {

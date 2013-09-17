@@ -25,7 +25,8 @@ The Service createDialog can be used to create a modal on the fly.
     footerTemplate: [modal_footer_template],
     modalClass: [modal_class],
     cancellable: [modal_cancellable],
-    css: [css_rules]
+    css: [css_rules],
+    searchUrl: [modal_search_url],
 }, {modal_custom_data});
 ```
 where,
@@ -47,6 +48,7 @@ where,
 * **modal_class(optional)** *[string]* : the css class for the modal.
 * **modal_cancellable(optional)** *[boolean]*: make it false to restrict user cancelling the popup with ESC, click on backdrop or calling $modalCancel
 * **css_rules(optional)** *[Object]* : css styles keys and values
+* **modal_search_url(optional)** *[key: string, value: string]* : if this parameter is defined then URL location will be appended with the specified "&<key>=<value>" when popup is opened and it will be removed when popup is closed
 * **modal_custom_data(optional)** *[object]* : is an object where each key becomes an argument to the controller of the modal.
 * **closeFn** *[function]* : calling this function will close the dialog
 
