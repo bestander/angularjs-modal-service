@@ -73,7 +73,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       scope.$modalCancel = options.cancellable ? closeFn : angular.noop;
       
       scope.$modalSuccess = function () {
-        options.success.fn.call(this);
+        options.success.fn.apply(this, arguments);
         closeFn();
       };
       scope.$onClose = options.onClose;
