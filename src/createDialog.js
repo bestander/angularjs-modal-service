@@ -5,6 +5,7 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
       title: 'Default Title',
       backdrop: true,
       success: {label: 'OK', fn: angular.noop},
+      cancel: {label: 'Cancel', fn: angular.noop},
       onClose: angular.noop,
       controller: null, //just like route controller declaration
       backdropClass: "modal-backdrop",
@@ -70,7 +71,13 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
         scope = options.scope || $rootScope.$new();
 
       scope.$title = options.title;
-      scope.$modalCancel = options.cancellable ? closeFn : angular.noop;
+      
+      scope.$modalCancel = function () {
+        if(options.cancellable){
+          options.cancel.fn.apply(this, arguments);
+          closeFn();
+        }
+      };
       
       scope.$modalSuccess = function () {
         options.success.fn.apply(this, arguments);

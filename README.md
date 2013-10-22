@@ -19,6 +19,7 @@ The Service createDialog can be used to create a modal on the fly.
     title: [modal_title],
     backdrop: [backdrop_visible],
     success: [modal_success_button],
+    cancel: [modal_cancel_button],
     onClose: [modal_close_callback],
     controller: [modal_controller],
     backdropClass: [modal_backdrop_class],
@@ -36,6 +37,12 @@ where,
 * **modal_title** *[string]* : is the title of the modal to be displayed in its header section.
 * **backdrop_visible(optional)** *[boolean]*: whether to hide the html page behind the modal under an overlay
 * **modal_success_button(optional)** *[object]*: the object add a submit button to the modal with its functionality
+
+*Syntax*
+```
+    {label: '[label_of_button]', fn: '[function_on_click]'}
+```
+* **modal_cancel_button(optional)** *[object]*: the object add a cancel button to the modal with its functionality
 
 *Syntax*
 ```
