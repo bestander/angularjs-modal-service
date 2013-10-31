@@ -1,6 +1,5 @@
 {
   "name": "angularjs-modal-service",
-  "version": "0.0.0",
   "description": "Service function that creates modal dialogues, no external dependencies",
   "main": "index.js",
   "repository": {

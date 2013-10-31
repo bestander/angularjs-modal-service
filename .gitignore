@@ -2,6 +2,7 @@
 # Build artefacts
 node_modules
 components
+bower_components
 
 # OS droppings
 .DS_Store
