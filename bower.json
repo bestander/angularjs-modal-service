@@ -1,6 +1,5 @@
 {
   "name": "angularjs-modal-service",
-  "version": "0.1.13",
   "main": "src/createDialog.js",
   "ignore": [
     "**/.*",
