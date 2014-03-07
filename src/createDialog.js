@@ -26,9 +26,11 @@ angular.module('fundoo.services', []).factory('createDialog', ["$document", "$co
 
       if (angular.isString(template)) {
         // if template is a string then it refers to an .html file 
-        modalEl = angular.element(
-          '<div class="' + options.modalClass + ' fade"' + idAttr + ' ng-include="\'' + template + '\'">' +
-            '</div>');
+          modalEl = angular.element(
+              '<div class="' + options.modalClass + ' fade"' + idAttr + '">' +
+                  '<div ng-include="\'' + template + '\'">' +
+                  '</div>' +
+              '</div>');
       } else {
         // if template is not a string then it is a wrapped dom object
         modalEl = angular.element(
